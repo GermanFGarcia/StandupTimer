@@ -39,14 +39,14 @@ public class AppVM : ObservableObject
     }
 
     private string standupTime;
-    public string StandupTime
+    public string StandupSpan
     {
         get => standupTime;
         set => SetProperty(ref standupTime, value);
     }
 
     private string turnTime;
-    public string TurnTime
+    public string TurnSpan
     {
         get => turnTime;
         set => SetProperty(ref turnTime, value);
@@ -165,8 +165,8 @@ public class AppVM : ObservableObject
     private void TickMessageHandler(object receiver, TickMessage message)
     {
         OfficialTime = appModel.OfficalTime.ToString(@"H:mm:ss");
-        StandupTime = appModel.StandupTime.ToString(@"mm\:ss");
-        TurnTime = appModel.TurnTime.ToString(@"m\:ss");
+        StandupSpan = appModel.StandupSpan.ToString(@"mm\:ss");
+        TurnSpan = appModel.TurnSpan.ToString(@"m\:ss");
 
         switch (appModel.TurnStatus)
         {

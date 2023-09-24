@@ -12,6 +12,7 @@ public class AppModel
 
         Now = DateTime.Now;
         OfficalTime = Now;
+        StandupSpan = TimeSpan.Zero;
         TurnCount = 0;
 
         var timer = Application.Current.Dispatcher.CreateTimer();
@@ -20,6 +21,8 @@ public class AppModel
         {
             Now = DateTime.Now;
             OfficalTime = Now;
+
+            if (IsStandupStarted) { StandupSpan = Now - StandupStartTime; }
 
             WeakReferenceMessenger.Default.Send(new TickMessage());
         };
@@ -37,15 +40,12 @@ public class AppModel
 
     public bool IsStandupStarted { get; set; }
     public DateTime StandupStartTime { get; set; }
-    public TimeSpan StandupTime => 
-        IsStandupStarted ?
-            Now - StandupStartTime :
-            TimeSpan.Zero;
+    public TimeSpan StandupSpan { get; set; }
 
     public bool IsTurnPaused { get; set; }
     public DateTime TurnStartTime { get; set; }
     public DateTime TurnPauseTime { get; set; }
-    public TimeSpan TurnTime => 
+    public TimeSpan TurnSpan => 
         IsStandupStarted ? 
             IsTurnPaused ?
                 TurnPauseTime - TurnStartTime :
@@ -62,9 +62,9 @@ public class AppModel
     {
         get
         {
-            if (TimeSpan.Compare(TurnTime, HalfTime) == -1) { return TurnStatus.Ok; }
-            if (TimeSpan.Compare(TurnTime, WarningTime) == -1) { return TurnStatus.Half; }
-            if (TimeSpan.Compare(TurnTime, OutTime) == -1) { return TurnStatus.Warning; }
+            if (TimeSpan.Compare(TurnSpan, HalfTime) == -1) { return TurnStatus.Ok; }
+            if (TimeSpan.Compare(TurnSpan, WarningTime) == -1) { return TurnStatus.Half; }
+            if (TimeSpan.Compare(TurnSpan, OutTime) == -1) { return TurnStatus.Warning; }
             return TurnStatus.Out;
         }
     }
@@ -77,9 +77,11 @@ public class AppModel
     {
         IsStandupStarted = true;   
         StandupStartTime = Now;
+        StandupSpan = Now - StandupStartTime;
         IsTurnPaused = true;    
         TurnStartTime = Now;
         TurnPauseTime = Now;
+        TurnCount = 1;
 
         WeakReferenceMessenger.Default.Send(new StatusChangedMessage());
     }

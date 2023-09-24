@@ -30,10 +30,10 @@ public class AppPage : ContentPage
                 {
                     // turn time
                     // negative margins to compensate for letters ascender/descender space
-                    new Label().Row(0).RowSpan(2).Column(0).Margins(0,-10,0,0).Bind(Label.TextProperty, static (AppVM vm) => vm.TurnTime).FontSize(60).TextColor(Colors.White),
+                    new Label().Row(0).RowSpan(2).Column(0).Margins(0,-10,0,0).Bind(Label.TextProperty, static (AppVM vm) => vm.TurnSpan).FontSize(60).TextColor(Colors.White),
 
                     // standup time
-                    new Label().Row(0).Column(1).End().Bottom().Margins(0,10,2,0).Bind(Label.TextProperty, static (AppVM vm) => vm.StandupTime).FontSize(20).TextColor(Colors.White),
+                    new Label().Row(0).Column(1).End().Bottom().Margins(0,10,2,0).Bind(Label.TextProperty, static (AppVM vm) => vm.StandupSpan).FontSize(20).TextColor(Colors.White),
 
                     // turn count
                     new Label().Row(1).Column(1).End().Top().Margins(0,0,3,0).Bind(Label.TextProperty, static (AppVM vm) => vm.TurnCount).FontSize(14).TextColor(Colors.White),
