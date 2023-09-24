@@ -5,6 +5,8 @@ namespace StandupTimer;
 
 public class AppPage : ContentPage
 {
+    #region UI
+
     public AppPage(AppVM appVM) 
     {
         this.appVM = appVM; 
@@ -30,7 +32,7 @@ public class AppPage : ContentPage
                 {
                     // turn time
                     // negative margins to compensate for letters ascender/descender space
-                    new Label().Row(0).RowSpan(2).Column(0).Margins(0,-10,0,0).Bind(Label.TextProperty, static (AppVM vm) => vm.TurnSpan).FontSize(60).TextColor(Colors.White),
+                    new Label().Row(0).RowSpan(2).Column(0).Margins(0,-18,0,0).Bind(Label.TextProperty, static (AppVM vm) => vm.TurnSpan).FontSize(60).TextColor(Colors.White),
 
                     // standup time
                     new Label().Row(0).Column(1).End().Bottom().Margins(0,10,2,0).Bind(Label.TextProperty, static (AppVM vm) => vm.StandupSpan).FontSize(20).TextColor(Colors.White),
@@ -77,6 +79,16 @@ public class AppPage : ContentPage
 
     }
 
+    #endregion
+
+    #region Fields
+
+    AppVM appVM;
+
+    #endregion
+
+    #region Styles
+
     private static Thickness iconButtonPadding = new Thickness(5);
 
     public static Style ResetIconButtonStyle { get; } = new Style<ImageButton>(
@@ -122,7 +134,9 @@ public class AppPage : ContentPage
         (ImageButton.SourceProperty, "stop.png")
     );
 
-    AppVM appVM;
+    #endregion
+
+    #region Event Handlers
 
     private void StartButtonClickedEventHandler(object sender, EventArgs args)
     {
@@ -153,4 +167,6 @@ public class AppPage : ContentPage
     {
         appVM.NextCommand.Execute(null);
     }
+
+    #endregion
 }

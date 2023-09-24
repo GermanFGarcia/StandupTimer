@@ -40,7 +40,7 @@ public class LauncherApp : Application
         var window = base.CreateWindow(activationState);
 
         window.Width = 330;
-        window.Height = 190;
+        window.Height = 175;
 		window.Title = "Stand-up Timer";
 
         // retrieve the window handle (HWND) of the current WinUI 3 window
