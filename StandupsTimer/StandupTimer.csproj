@@ -15,7 +15,7 @@
 		<ApplicationTitle>StandupTimer</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.standupstimer</ApplicationId>
+		<ApplicationId>com.gfgm.standuptimer</ApplicationId>
 		<ApplicationIdGuid>86f83f9f-dbb4-4668-928d-a50dde9cbb87</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -30,9 +30,25 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-maccatalyst|AnyCPU'">
+	  <ApplicationId>com.gfgm.standuptimer</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-maccatalyst|AnyCPU'">
+	  <ApplicationId>com.gfgm.standuptimer</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>com.gfgm.standuptimer</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>com.gfgm.standuptimer</ApplicationId>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" BaseSize="256,256" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" BaseSize="128,128" />
 		
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
