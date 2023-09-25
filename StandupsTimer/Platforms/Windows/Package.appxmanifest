@@ -6,13 +6,16 @@
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap rescap">
 
-  <Identity Name="maui-package-name-placeholder" Publisher="CN=User Name" Version="1.0.0.0" />
+  <Identity 
+	Name="GFGM.StandupTimer" 
+	Publisher="CN=GFGM" 
+	Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="9B6CA10D-E327-46E1-8736-3D8B3E5771A1" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Standup Timer</DisplayName>
-    <PublisherDisplayName>User Name</PublisherDisplayName>
+    <DisplayName>StandupTimer</DisplayName>
+    <PublisherDisplayName>GFGM</PublisherDisplayName>
     <Logo>appicon.png</Logo>
   </Properties>
 
