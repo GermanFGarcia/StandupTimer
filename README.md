@@ -1,4 +1,4 @@
-	# StandupTimer
+# StandupTimer
 
 
 ## Description
@@ -8,6 +8,7 @@ Tool to keep Scrum stand-ups timing at bay
 ## Run from File Explorer
 
 By default solution is configured to run only from inside VS and generate an installer.
+
 To run executable directly from file explorer change as follows:
 	Project file : <PropertyGroup> : <WindowsPackageType>None</WindowsPackageType>
 	Project : Properties : launchSettings.json : "commandName": "Project",
