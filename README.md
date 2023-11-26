@@ -10,8 +10,8 @@ Tool to keep Scrum stand-ups timing at bay
 By default solution is configured to run only from inside VS and generate an installer.
 
 To run executable directly from file explorer change as follows:
-	Project file : <PropertyGroup> : <WindowsPackageType>None</WindowsPackageType>
-	Project : Properties : launchSettings.json : "commandName": "Project",
+- Project file : `<WindowsPackageType>None</WindowsPackageType>`
+- Project : `Properties : launchSettings.json : "commandName": "Project",`
 
 
 ## Generate installer MSIX pacakge (from commandline)
