@@ -11,14 +11,14 @@ By default solution is configured to run only from inside VS and generate an ins
 
 To run executable directly from file explorer change as follows:
 - Project file : `<WindowsPackageType>None</WindowsPackageType>`
-- Project : `Properties : launchSettings.json : "commandName": "Project",`
+- Properties\launchSettings.json : `"commandName": "Project",`
 
 
 ## Generate installer MSIX pacakge (from commandline)
 
-Reset installer settings:
-	Project file : <PropertyGroup> : <WindowsPackageType>None</WindowsPackageType> : remove this line
-	Project : Properties : launchSettings.json : "commandName": "MsixPackage",
+To build an installer change project configuration as follows:
+- Project file : comment out line `<WindowsPackageType>None</WindowsPackageType>`
+- Properties\launchSettings.json : `"commandName": "MsixPackage",`
 
 The installer needs to be signed
 Can use a selft-signed certificate
